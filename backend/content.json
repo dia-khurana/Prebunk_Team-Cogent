@@ -1,0 +1,307 @@
+{
+  "categories": [
+    {
+      "id": "false_urgency",
+      "name": "False Urgency",
+      "description": "Pressure to act or share immediately, before the reader can think or verify."
+    },
+    {
+      "id": "fake_authority",
+      "name": "Fake Authority",
+      "description": "Borrowed or invented credibility — vague experts, misused titles, unnamed insiders."
+    },
+    {
+      "id": "emotional_bait",
+      "name": "Emotional Bait",
+      "description": "Content designed to trigger a strong emotional reaction before critical thinking kicks in."
+    },
+    {
+      "id": "fake_consensus",
+      "name": "Fake Consensus",
+      "description": "Implying everyone already believes or knows this, pressuring agreement through perceived popularity."
+    },
+    {
+      "id": "misleading_stats",
+      "name": "Cherry-Picked / Misleading Statistics",
+      "description": "Real-sounding numbers presented without context, baseline, or source."
+    },
+    {
+      "id": "ai_content_cues",
+      "name": "AI-Generated Content Cues",
+      "description": "Subtle tells that an image, video, voice clip, or piece of text may be AI-generated or manipulated."
+    }
+  ],
+  "posts": [
+    {
+      "id": "fu-01",
+      "category": "false_urgency",
+      "language": "hi-en",
+      "difficulty": "easy",
+      "type": "text",
+      "text": "⚠️ Ye message 2 ghante mein delete ho jayega. Abhi 10 logo ko forward karo warna important update miss ho jayega.",
+      "explanation": "Fake countdown pressure removes the time needed to pause and verify — urgency is designed to make you act before you think, not because any real deadline exists."
+    },
+    {
+      "id": "fu-02",
+      "category": "false_urgency",
+      "language": "en",
+      "difficulty": "easy",
+      "type": "text",
+      "text": "URGENT: Your bank account will be frozen in 30 minutes unless you verify your details at this link right now.",
+      "explanation": "Combines a fake deadline with a threat to something the reader cares about (their money) — a structure behind the vishing/smishing scam pattern that has grown sharply worldwide."
+    },
+    {
+      "id": "fu-03",
+      "category": "false_urgency",
+      "language": "hi-en",
+      "difficulty": "medium",
+      "type": "text",
+      "text": "Sarkar ne ye khabar 1 ghante mein hataa di jayegi. Screenshot lelo abhi, baad mein nahi milegi.",
+      "explanation": "Claims of imminent censorship make content feel rare and important, encouraging quick sharing before anyone checks whether it's true."
+    },
+    {
+      "id": "fu-04",
+      "category": "false_urgency",
+      "language": "en",
+      "difficulty": "easy",
+      "type": "text",
+      "text": "Limited slots left — offer expires in 09:59. Claim now before it's gone forever.",
+      "explanation": "Countdown timers exploit loss aversion, a well-documented psychological trigger that pressures snap decisions over careful evaluation."
+    },
+    {
+      "id": "fu-05",
+      "category": "false_urgency",
+      "language": "hi-en",
+      "difficulty": "medium",
+      "type": "text",
+      "text": "Bank ne bola hai KYC abhi update nahi kiya to account 24 ghante mein band ho jayega. Neeche diye link pe click karke turant verify karo.",
+      "explanation": "Mirrors one of the most common real fraud patterns in India today — fake urgency plus a fake bank threat, designed to trigger immediate action over verification."
+    },
+    {
+      "id": "fa-01",
+      "category": "fake_authority",
+      "language": "hi-en",
+      "difficulty": "easy",
+      "type": "text",
+      "text": "Ek senior doctor ne bataya — haldi wala doodh cancer tak theek kar sakta hai. Hospital wale nahi batate kyunki business band ho jayega.",
+      "explanation": "\"A senior doctor\" is unnamed and unverifiable, borrowing the credibility of a medical title without any accountability."
+    },
+    {
+      "id": "fa-02",
+      "category": "fake_authority",
+      "language": "en",
+      "difficulty": "medium",
+      "type": "text",
+      "text": "A former Big Tech insider confirms: this app is secretly recording everything you say. Leaked internal memo proves it.",
+      "explanation": "\"Former insider\" and \"leaked memo\" imply exclusive, verified access, but name no person, document, or company — vague authority used to feel credible without being checkable."
+    },
+    {
+      "id": "fa-03",
+      "category": "fake_authority",
+      "language": "hi-en",
+      "difficulty": "medium",
+      "type": "text",
+      "text": "IIT ke scientists ne prove kar diya hai — ye ek cheez khane se sugar completely control ho jaata hai, medicine ki zaroorat nahi.",
+      "explanation": "Naming a prestigious institution generically (no specific researcher, paper, or study cited) borrows credibility without providing anything a reader could verify."
+    },
+    {
+      "id": "fa-04",
+      "category": "fake_authority",
+      "language": "en",
+      "difficulty": "easy",
+      "type": "text",
+      "text": "As someone who used to work in finance, trust me — this investment app guarantees 40% returns every month with zero risk.",
+      "explanation": "A vague professional background implies insider knowledge, while the claim itself (guaranteed 40% monthly, zero risk) contradicts how real investments work."
+    },
+    {
+      "id": "fa-05",
+      "category": "fake_authority",
+      "language": "hi-en",
+      "difficulty": "hard",
+      "type": "text",
+      "text": "Mera rishtedaar ISRO mein kaam karta hai, usne bataya ki ye news sach hai but officially release nahi hui hai.",
+      "explanation": "Unverifiable second-hand \"insider\" claims feel credible because they're framed as secret — but there's no way to confirm the relative, the job, or the claim."
+    },
+    {
+      "id": "eb-01",
+      "category": "emotional_bait",
+      "language": "hi-en",
+      "difficulty": "easy",
+      "type": "text",
+      "text": "Is bacchi ko ilaj nahi mil paya kyunki naye rules aa gaye hain. Agar dil hai to share karo.",
+      "explanation": "Emotionally charged imagery paired with a moral challenge pressures sharing based on feeling, not on whether the underlying claim is accurate."
+    },
+    {
+      "id": "eb-02",
+      "category": "emotional_bait",
+      "language": "en",
+      "difficulty": "easy",
+      "type": "text",
+      "text": "You won't believe what this company just did to its employees. Every worker deserves to see this.",
+      "explanation": "Vague outrage-bait creates anger before any actual facts are presented, so the reader is emotionally invested before evaluating the claim."
+    },
+    {
+      "id": "eb-03",
+      "category": "emotional_bait",
+      "language": "hi-en",
+      "difficulty": "medium",
+      "type": "text",
+      "text": "Agar ye video nahi rulaya to samajh lena dil pathar ka hai. Please sabko bhejo.",
+      "explanation": "Explicitly weaponizing tears/emotion as \"proof\" the content deserves to be shared substitutes emotional reaction for evidence."
+    },
+    {
+      "id": "eb-04",
+      "category": "emotional_bait",
+      "language": "en",
+      "difficulty": "medium",
+      "type": "text",
+      "text": "This should make every parent furious. Share before they take this down too.",
+      "explanation": "Combines anger-bait with a suggestion of suppression, making content feel urgent and important without offering anything independently verifiable."
+    },
+    {
+      "id": "eb-05",
+      "category": "emotional_bait",
+      "language": "hi-en",
+      "difficulty": "hard",
+      "type": "text",
+      "text": "Meri dadi ko isi tarah ka call aaya tha, awaaz bilkul mere cousin jaisi thi — agar aisa call aaye to turant paise mat bhejo.",
+      "explanation": "Mirrors the real, rapidly growing global 'grandparent scam' pattern using voice-cloning. Here emotional framing is used protectively — a good discussion point that the technique itself isn't inherently bad, just the intent behind it.",
+      "note": "protective_example"
+    },
+    {
+      "id": "fc-01",
+      "category": "fake_consensus",
+      "language": "hi-en",
+      "difficulty": "easy",
+      "type": "text",
+      "text": "10 lakh se zyada logo ne ye already share kar diya hai. Aap abhi tak unaware ho?",
+      "explanation": "Large, unverifiable numbers create social pressure — if \"everyone\" already believes it, questioning it starts to feel socially risky."
+    },
+    {
+      "id": "fc-02",
+      "category": "fake_consensus",
+      "language": "en",
+      "difficulty": "medium",
+      "type": "text",
+      "text": "Everyone in my friend group is switching to this — why isn't this all over the mainstream news?",
+      "explanation": "Implies both popular agreement and suppressed truth at once, making skepticism feel naive rather than sensible."
+    },
+    {
+      "id": "fc-03",
+      "category": "fake_consensus",
+      "language": "hi-en",
+      "difficulty": "easy",
+      "type": "text",
+      "text": "Poore mohalle mein log yahi bol rahe hain. Itne log galat kaise ho sakte hain?",
+      "explanation": "Popularity within a trusted local group is used as a stand-in for accuracy — but something widely repeated says nothing about whether it's true."
+    },
+    {
+      "id": "fc-04",
+      "category": "fake_consensus",
+      "language": "en",
+      "difficulty": "easy",
+      "type": "text",
+      "text": "Join the millions who already know the truth. Don't be the last one to find out.",
+      "explanation": "Frames the decision socially rather than factually, pressuring conformity instead of verification."
+    },
+    {
+      "id": "fc-05",
+      "category": "fake_consensus",
+      "language": "hi-en",
+      "difficulty": "medium",
+      "type": "text",
+      "text": "Family group ke sabhi log ye maan rahe hain, tum akele hi doubt kyun kar rahe ho?",
+      "explanation": "Social pressure from a trusted in-group (family) discourages disagreement, making healthy skepticism feel like a betrayal of relationships."
+    },
+    {
+      "id": "ms-01",
+      "category": "misleading_stats",
+      "language": "en",
+      "difficulty": "medium",
+      "type": "text",
+      "text": "Cases up 90% this month! (the real number went from 2 to just under 4)",
+      "explanation": "A large percentage sounds alarming, but without the actual counts, it's impossible to judge whether the change is meaningful."
+    },
+    {
+      "id": "ms-02",
+      "category": "misleading_stats",
+      "language": "hi-en",
+      "difficulty": "hard",
+      "type": "text",
+      "text": "Is scheme se 300% zyada fraud ho raha hai! (original number kabhi nahi bataya gaya)",
+      "explanation": "Relative change sounds dramatic, but without the starting figure, there's no way to judge real-world scale — technically accurate numbers used to mislead."
+    },
+    {
+      "id": "ms-03",
+      "category": "misleading_stats",
+      "language": "en",
+      "difficulty": "easy",
+      "type": "text",
+      "text": "9 out of 10 people we asked prefer this (based on a poll of 10 people in one office).",
+      "explanation": "A statistically meaningless sample size is dressed up as a general truth — technically accurate, wildly unrepresentative."
+    },
+    {
+      "id": "ms-04",
+      "category": "misleading_stats",
+      "language": "hi-en",
+      "difficulty": "medium",
+      "type": "text",
+      "text": "Naye rule ke baad business 50% girr gaya (sales already gir rahi thi unrelated reasons se, months pehle se).",
+      "explanation": "A real number is presented without the context needed to judge whether the new rule actually caused the change — correlation framed as causation."
+    },
+    {
+      "id": "ms-05",
+      "category": "misleading_stats",
+      "language": "en",
+      "difficulty": "medium",
+      "type": "text",
+      "text": "Only 2% of people know this one fact (no named source, survey, or method given).",
+      "explanation": "A precise-sounding number implies real data behind it, but without a citation, the figure could be entirely invented."
+    },
+    {
+      "id": "ai-01",
+      "category": "ai_content_cues",
+      "language": "en",
+      "difficulty": "medium",
+      "type": "image_description",
+      "text": "Image of a crowd at an event — hands have an extra finger, background signage text is garbled, shadows fall in different directions across the same scene.",
+      "explanation": "Current AI image generators still struggle with fine details like hands, readable background text, and physically consistent lighting."
+    },
+    {
+      "id": "ai-02",
+      "category": "ai_content_cues",
+      "language": "en",
+      "difficulty": "hard",
+      "type": "audio_description",
+      "text": "Voice note, supposedly from a family member — tone is unusually flat and consistent throughout, no breathing sounds, background is unnaturally silent for a phone call.",
+      "explanation": "Maps to the real grandparent-scam pattern law enforcement is tracking closely. AI-generated speech often sounds 'too clean', lacking natural breathing and ambient noise. A pre-agreed family safe phrase is a strong defense since no AI can generate something it hasn't heard."
+    },
+    {
+      "id": "ai-03",
+      "category": "ai_content_cues",
+      "language": "en",
+      "difficulty": "medium",
+      "type": "text",
+      "text": "Text post with generic phrasing that repeats the same idea in slightly different words, no specific names, dates, or checkable details anywhere.",
+      "explanation": "AI-generated text often 'pads' length without adding new information and avoids concrete, verifiable specifics."
+    },
+    {
+      "id": "ai-04",
+      "category": "ai_content_cues",
+      "language": "en",
+      "difficulty": "hard",
+      "type": "video_description",
+      "text": "Video clip of a company executive announcing a 'guaranteed' investment — mouth movements slightly out of sync with audio, unnaturally smooth skin texture, mechanical blinking pattern.",
+      "explanation": "Lip-sync drift and over-smoothed skin remain common deepfake artifacts — and deepfaked executives promoting bogus investments is a documented real fraud pattern."
+    },
+    {
+      "id": "ai-05",
+      "category": "ai_content_cues",
+      "language": "en",
+      "difficulty": "hard",
+      "type": "image_description",
+      "text": "Image where reflections in a mirror or window don't match what's actually in the room; the same light source produces shadows falling in inconsistent directions.",
+      "explanation": "AI image generators frequently get physically impossible details wrong. Mismatched reflections and inconsistent shadows are strong tells no real photograph would produce."
+    }
+  ]
+}

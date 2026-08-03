@@ -1,0 +1,281 @@
+{
+  "info": {
+    "name": "Prebunk API",
+    "description": "Full test suite for the Prebunk backend — UNESCO Youth Hackathon 2026. Run folders top-to-bottom in order: Health -> Session -> Game Loop -> Edge Cases. session_id and post_id are captured automatically by test scripts, no manual copy-pasting needed.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://127.0.0.1:8000", "type": "string" },
+    { "key": "session_id", "value": "", "type": "string" },
+    { "key": "post_id", "value": "", "type": "string" },
+    { "key": "post_correct_category", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "1. Health",
+      "item": [
+        {
+          "name": "GET /health",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/health", "host": ["{{base_url}}"], "path": ["health"] }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('Status is ok', () => pm.expect(body.status).to.eql('ok'));",
+                  "pm.test('30 posts loaded', () => pm.expect(body.posts_loaded).to.eql(30));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2. Session",
+      "item": [
+        {
+          "name": "POST /session",
+          "request": {
+            "method": "POST",
+            "url": { "raw": "{{base_url}}/session", "host": ["{{base_url}}"], "path": ["session"] }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 201', () => pm.response.to.have.status(201));",
+                  "const body = pm.response.json();",
+                  "pm.test('session_id present', () => pm.expect(body.session_id).to.be.a('string').and.not.empty);",
+                  "pm.collectionVariables.set('session_id', body.session_id);",
+                  "console.log('Saved session_id:', body.session_id);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3. Game Loop",
+      "item": [
+        {
+          "name": "GET /post/{{session_id}}",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/post/{{session_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["post", "{{session_id}}"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('post_id present', () => pm.expect(body.post_id).to.be.a('string'));",
+                  "pm.test('6 category options returned', () => pm.expect(body.category_options.length).to.eql(6));",
+                  "pm.test('correct answer NOT leaked', () => {",
+                  "  pm.expect(body).to.not.have.property('category');",
+                  "  pm.expect(body).to.not.have.property('explanation');",
+                  "});",
+                  "pm.collectionVariables.set('post_id', body.post_id);",
+                  "console.log('Saved post_id:', body.post_id, '| text:', body.text);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST /answer (submit a guess)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/answer", "host": ["{{base_url}}"], "path": ["answer"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"{{session_id}}\",\n  \"post_id\": \"{{post_id}}\",\n  \"selected_category\": \"false_urgency\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('response has correct/correct_category/explanation', () => {",
+                  "  pm.expect(body).to.have.property('correct');",
+                  "  pm.expect(body).to.have.property('correct_category');",
+                  "  pm.expect(body).to.have.property('explanation');",
+                  "});",
+                  "console.log('Was correct?', body.correct, '| Real category:', body.correct_category);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "description": "NOTE: 'selected_category' is hardcoded to 'false_urgency' here for a quick structural test. To actually test correctness, read the 'text' from the previous response and pick the category YOU think is right, or use the correct_category returned here to learn the right answer for that post_id."
+        },
+        {
+          "name": "GET /score/{{session_id}}",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/score/{{session_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["score", "{{session_id}}"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test('total_answered >= 1', () => pm.expect(body.total_answered).to.be.at.least(1));",
+                  "pm.test('by_category has 6 entries', () => pm.expect(body.by_category.length).to.eql(6));",
+                  "console.log('Score so far:', body.total_correct, '/', body.total_answered);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ],
+      "description": "Run 'GET /post' -> 'POST /answer' -> 'GET /score' repeatedly (use Postman's Runner to loop this folder 5-10x) to build up a realistic session and verify the adaptive logic shifts toward weaker categories over time."
+    },
+    {
+      "name": "4. Edge Cases",
+      "item": [
+        {
+          "name": "GET /post/{{invalid_session}} -> expect 404",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/post/this-session-does-not-exist",
+              "host": ["{{base_url}}"],
+              "path": ["post", "this-session-does-not-exist"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 404', () => pm.response.to.have.status(404));",
+                  "pm.test('Error message present', () => pm.expect(pm.response.json().detail).to.be.a('string'));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST /answer with invalid post_id -> expect 404",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/answer", "host": ["{{base_url}}"], "path": ["answer"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"{{session_id}}\",\n  \"post_id\": \"not-a-real-post\",\n  \"selected_category\": \"false_urgency\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 404', () => pm.response.to.have.status(404));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST /answer with invalid category -> expect 422",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/answer", "host": ["{{base_url}}"], "path": ["answer"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"{{session_id}}\",\n  \"post_id\": \"{{post_id}}\",\n  \"selected_category\": \"not_a_real_category\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 422', () => pm.response.to.have.status(422));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST /answer with missing fields -> expect 422",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/answer", "host": ["{{base_url}}"], "path": ["answer"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"{{session_id}}\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 422', () => pm.response.to.have.status(422));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET /score/{{invalid_session}} -> expect 404",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/score/this-session-does-not-exist",
+              "host": ["{{base_url}}"],
+              "path": ["score", "this-session-does-not-exist"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 404', () => pm.response.to.have.status(404));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
