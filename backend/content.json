@@ -3,32 +3,38 @@
     {
       "id": "false_urgency",
       "name": "False Urgency",
-      "description": "Pressure to act or share immediately, before the reader can think or verify."
+      "description": "Pressure to act or share immediately, before the reader can think or verify.",
+      "action_tip": "Wait ten minutes before you share it. If it's still true later, it was never that urgent."
     },
     {
       "id": "fake_authority",
       "name": "Fake Authority",
-      "description": "Borrowed or invented credibility — vague experts, misused titles, unnamed insiders."
+      "description": "Borrowed or invented credibility — vague experts, misused titles, unnamed insiders.",
+      "action_tip": "Look for a name you can actually search for — a real doctor, study, or institution — not just a title."
     },
     {
       "id": "emotional_bait",
       "name": "Emotional Bait",
-      "description": "Content designed to trigger a strong emotional reaction before critical thinking kicks in."
+      "description": "Content designed to trigger a strong emotional reaction before critical thinking kicks in.",
+      "action_tip": "If a post makes you angry or scared before it informs you, that reaction is the design, not an accident. Pause first."
     },
     {
       "id": "fake_consensus",
       "name": "Fake Consensus",
-      "description": "Implying everyone already believes or knows this, pressuring agreement through perceived popularity."
+      "description": "Implying everyone already believes or knows this, pressuring agreement through perceived popularity.",
+      "action_tip": "Ask for the source behind the claim, not just how many people are sharing it."
     },
     {
       "id": "misleading_stats",
       "name": "Cherry-Picked / Misleading Statistics",
-      "description": "Real-sounding numbers presented without context, baseline, or source."
+      "description": "Real-sounding numbers presented without context, baseline, or source.",
+      "action_tip": "Look for the actual numbers behind a percentage — a small change can sound huge without them."
     },
     {
       "id": "ai_content_cues",
       "name": "AI-Generated Content Cues",
-      "description": "Subtle tells that an image, video, voice clip, or piece of text may be AI-generated or manipulated."
+      "description": "Subtle tells that an image, video, voice clip, or piece of text may be AI-generated or manipulated.",
+      "action_tip": "No single detail proves something's AI-made. Check who posted it first before trusting how it looks."
     }
   ],
   "posts": [
