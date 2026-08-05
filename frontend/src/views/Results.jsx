@@ -44,6 +44,9 @@ export default function Results({ score, onAgain, onHome }) {
         {(score?.by_category || []).map((c, i) => {
           const acc = c.accuracy == null ? 0 : c.accuracy;
           const cls = c.accuracy != null && c.accuracy >= 0.75 ? "ok" : i % 3 === 0 ? "accent" : "";
+          // FIX: was showing correct/wrong (e.g. "1/0"), which reads as "1 out of 0".
+          // Now shows correct/total_attempted (e.g. "1/1"), which is what the label implies.
+          const totalAttempted = c.correct + c.wrong;
           return (
             <motion.div
               key={c.category_id}
@@ -53,7 +56,11 @@ export default function Results({ score, onAgain, onHome }) {
             >
               <div className="top">
                 <span className="nm">{c.category_name}</span>
-                <span className="acc">{c.correct}/{c.wrong} · {c.accuracy == null ? "not yet" : fmtPct(c.accuracy)}</span>
+                <span className="acc">
+                  {totalAttempted === 0
+                    ? "not yet"
+                    : `${c.correct}/${totalAttempted} · ${fmtPct(c.accuracy)}`}
+                </span>
               </div>
               <div className={`bar ${cls}`}>
                 <motion.i

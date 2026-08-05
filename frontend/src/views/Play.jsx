@@ -40,7 +40,8 @@ export default function Play({
         {post && (
           <>
             <div className="post-top">
-              <div className="mono">{(post.text || "?").trim().charAt(0).toUpperCase()}</div>
+              {/* FIX: was showing post.text's first letter — now shows the user's own initial */}
+              <div className="mono">{(info.name || "?").trim().charAt(0).toUpperCase()}</div>
               <div className="unbox">
                 <div className="un">{info.name}</div>
                 <div className="h">{info.time} · Public</div>
@@ -111,6 +112,13 @@ export default function Play({
               </div>
             </div>
             <div className="expl">{post._answer.explanation}</div>
+
+            {/* NEW: practical action tip, shown right below the explanation */}
+            {post._answer.action_tip && (
+              <div className="tip">
+                <strong>Try this:</strong> {post._answer.action_tip}
+              </div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
