@@ -33,6 +33,7 @@ class AnswerResponse(BaseModel):
     correct: bool
     correct_category: str
     explanation: str
+    action_tip: str
     post_id: str
 
 

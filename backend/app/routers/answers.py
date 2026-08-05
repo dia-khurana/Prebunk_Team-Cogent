@@ -49,5 +49,6 @@ def submit_answer(payload: AnswerRequest):
         correct=is_correct,
         correct_category=correct_category,
         explanation=post["explanation"],
+        action_tip=library.category_action_tips.get(correct_category, ""),
         post_id=post["id"],
     )

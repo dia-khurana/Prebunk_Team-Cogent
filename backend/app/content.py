@@ -20,6 +20,9 @@ class ContentLibrary:
 
         self.category_ids: list[str] = [c["id"] for c in self.categories]
         self.category_names: dict[str, str] = {c["id"]: c["name"] for c in self.categories}
+        self.category_action_tips: dict[str, str] = {
+            c["id"]: c.get("action_tip", "") for c in self.categories
+        }
         self.posts_by_id: dict[str, dict] = {p["id"]: p for p in self.posts}
         self.posts_by_category: dict[str, list[dict]] = {
             cat: [p for p in self.posts if p["category"] == cat] for cat in self.category_ids
